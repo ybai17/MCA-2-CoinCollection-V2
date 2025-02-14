@@ -1621,7 +1621,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e03c5854cb80c644a97c5527c38265e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTime: 15
+  levelTime:
+  - 30
+  - 60
   timerText: {fileID: 2101529642}
   scoreText: {fileID: 1690825624}
   messageText: {fileID: 2130687320}

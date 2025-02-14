@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     static int currentLevel;
 
     [SerializeField]
-    private float levelTime = 15;
+    private float levelTime = 30.0f;
     public TMP_Text timerText;
     public TMP_Text scoreText;
     public TMP_Text messageText;
@@ -25,7 +25,6 @@ public class LevelManager : MonoBehaviour
     // called before Start(), called as soon as the Unity engine compiles everything
     void Awake()
     {
-
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -33,8 +32,10 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Current level: " + currentLevel);
+        Debug.Log("levelTime: " + levelTime);
 
         countdown = levelTime;
+
         CoinBehavior.ResetPickups();
         SetScoreText(0);
         IsPlaying = true;
@@ -49,15 +50,16 @@ public class LevelManager : MonoBehaviour
             LevelTimer();
             SetTimerText();
 
-            if (CoinBehavior.ScoreTotal >= 20) {
-                //win
-                LevelBeat();
-                //Invoke("LevelBeat", 1);
+            if (currentLevel == 0) {
+                if (CoinBehavior.ScoreTotal >= 20) {
+                    //win
+                    LevelBeat();
+                }
             }
-            else if (countdown <= 0) {
+
+            if (countdown <= 0) {
                 //lose
                 LevelLost();
-                //Invoke("LevelBeat", 1);
             }
         }
     }
