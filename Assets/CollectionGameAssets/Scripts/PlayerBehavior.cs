@@ -24,15 +24,9 @@ public class PlayerBehavior : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy")) {
 
             if (transform.position.y >= collision.gameObject.transform.position.y + 0.2) {
-                Debug.Log("Bonked " + collision.gameObject);
-
-                var script = collision.gameObject.GetComponent<EnemyBehavior>();
-
-                script.EnemyDie();
-
                 PlayerController playerController = GetComponent<PlayerController>();
                 playerController.Jump(2.5f);
-
+                
                 return;
             }
 
