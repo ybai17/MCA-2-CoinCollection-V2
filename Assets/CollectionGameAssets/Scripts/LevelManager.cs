@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 
@@ -9,7 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     public static bool IsPlaying {get; private set;}
 
-    int currentLevel;
+    static int currentLevel;
 
     [SerializeField]
     private float levelTime = 15;
@@ -33,7 +32,7 @@ public class LevelManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentLevel = 1;
+        Debug.Log("Current level: " + currentLevel);
 
         countdown = levelTime;
         CoinBehavior.ResetPickups();
@@ -151,7 +150,7 @@ public class LevelManager : MonoBehaviour
             Debug.Log("Next level not specified");
         }
         */
-        LoadSceneByName("Level" + (currentLevel + 1));
-        currentLevel++;
+        //LoadSceneByName("Level" + (currentLevel + 1));
+        LoadSceneByIndex(++currentLevel);
     }
 }
