@@ -1621,9 +1621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e03c5854cb80c644a97c5527c38265e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTime:
-  - 30
-  - 60
+  levelTime: 30
   timerText: {fileID: 2101529642}
   scoreText: {fileID: 1690825624}
   messageText: {fileID: 2130687320}
@@ -1882,7 +1880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6466186790805451091, guid: ae14bbd42891a30488bc9a11fb235f7c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6466186790805451091, guid: ae14bbd42891a30488bc9a11fb235f7c, type: 3}
       propertyPath: m_LocalPosition.z
