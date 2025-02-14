@@ -20,10 +20,10 @@ public class CoinBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("Score from " + transform.name + ": " + scoreValue);
+        //Debug.Log("Score from " + transform.name + ": " + scoreValue);
 
         levelManager = FindAnyObjectByType<LevelManager>();
-        Debug.Log("Found LM: " + levelManager.name);
+        //Debug.Log("Found LM: " + levelManager.name);
     }
 
     // Update is called once per frame
@@ -66,7 +66,7 @@ public class CoinBehavior : MonoBehaviour
     void OnDestroy()
     {
         //pickupCount--;
-        Debug.Log("Add score: " + scoreValue);
+        //Debug.Log("Add score: " + scoreValue);
     }
 
     void PlayAudio()
