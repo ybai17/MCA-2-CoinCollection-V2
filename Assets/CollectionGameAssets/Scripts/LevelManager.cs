@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
 {
     public static bool IsPlaying {get; private set;}
 
-    public string nextLevel;
+    int currentLevel;
 
     [SerializeField]
     private float levelTime = 15;
@@ -33,6 +33,8 @@ public class LevelManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        currentLevel = 1;
+
         countdown = levelTime;
         CoinBehavior.ResetPickups();
         SetScoreText(0);
@@ -92,8 +94,8 @@ public class LevelManager : MonoBehaviour
 
         nextButton.SetActive(true);
 
-        CoinBehavior.ResetPickups();
-        Invoke("ReloadSameScene", 5);
+        //CoinBehavior.ResetPickups();
+        //Invoke("ReloadSameScene", 5);
         //ReloadSameScene();
     }
 
@@ -142,10 +144,14 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        /*
         if (nextLevel.Length > 0) {
             LoadSceneByName(nextLevel);
         } else {
             Debug.Log("Next level not specified");
         }
+        */
+        LoadSceneByName("Level" + (currentLevel + 1));
+        currentLevel++;
     }
 }
