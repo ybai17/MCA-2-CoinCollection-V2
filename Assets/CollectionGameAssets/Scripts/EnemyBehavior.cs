@@ -28,6 +28,10 @@ public class EnemyBehavior : MonoBehaviour
         if (target && LevelManager.IsPlaying && isAlive) {
             FollowTarget();
         }
+        
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            EnemyDie();
+        }
     }
 
     void FollowTarget()
