@@ -11,12 +11,31 @@ public class PlayerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y < -10) {
+            LevelManager levelManager = FindAnyObjectByType<LevelManager>();
+
+            levelManager.LevelLost();
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy")) {
+
+            if (transform.position.y >= collision.gameObject.transform.position.y + 0.2) {
+                Debug.Log("Bonked " + collision.gameObject);
+
+                var script = collision.gameObject.GetComponent<EnemyBehavior>();
+
+                script.EnemyDie();
+
+                PlayerController playerController = GetComponent<PlayerController>();
+                playerController.Jump(2.5f);
+
+                return;
+            }
+
             LevelManager levelManager = FindAnyObjectByType<LevelManager>();
 
             levelManager.LevelLost();

@@ -7,7 +7,7 @@ public class CoinBehavior : MonoBehaviour
     private float rotateSpeed = 90.0f;
 
     [SerializeField]
-    private int score = 5;
+    private int scoreValue = 5;
 
     public static int ScoreTotal {get; set;}
 
@@ -20,7 +20,7 @@ public class CoinBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("Score from " + transform.name + ": " + score);
+        Debug.Log("Score from " + transform.name + ": " + scoreValue);
 
         levelManager = FindAnyObjectByType<LevelManager>();
         Debug.Log("Found LM: " + levelManager.name);
@@ -51,7 +51,7 @@ public class CoinBehavior : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetTrigger("pickupDestroyed");
 
-        ScoreTotal += score;
+        ScoreTotal += scoreValue;
 
         if (levelManager)
             levelManager.SetScoreText(ScoreTotal);
@@ -62,7 +62,7 @@ public class CoinBehavior : MonoBehaviour
     void OnDestroy()
     {
         //pickupCount--;
-        Debug.Log("Add score: " + score);
+        Debug.Log("Add score: " + scoreValue);
     }
 
     void PlayAudio()

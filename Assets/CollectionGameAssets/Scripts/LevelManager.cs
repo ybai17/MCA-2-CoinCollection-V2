@@ -69,7 +69,7 @@ public class LevelManager : MonoBehaviour
             countdown = 0;
         }
 
-        Debug.Log("countdown = " + countdown.ToString("0.00"));
+        // Debug.Log("countdown = " + countdown.ToString("0.00"));
     }
 
     void SetTimerText()

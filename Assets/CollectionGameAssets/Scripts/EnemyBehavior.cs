@@ -27,15 +27,21 @@ public class EnemyBehavior : MonoBehaviour
 
     void FollowTarget()
     {
-        transform.LookAt(target);
-        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
+        Vector3 positionGrounded = new Vector3(target.position.x, -0.2f, target.position.z);
+        transform.LookAt(positionGrounded);
+        transform.position = Vector3.MoveTowards(transform.position, positionGrounded, Time.deltaTime * speed);
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy")) {
-            AudioSource.PlayClipAtPoint(enemySFX, Camera.main.transform.position);
-            Destroy(gameObject);
+            EnemyDie();
         }
+    }
+
+    public void EnemyDie()
+    {
+        AudioSource.PlayClipAtPoint(enemySFX, Camera.main.transform.position);
+        Destroy(gameObject);
     }
 }

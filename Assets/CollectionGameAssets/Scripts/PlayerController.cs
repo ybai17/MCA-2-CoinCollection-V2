@@ -27,7 +27,10 @@ public class PlayerController : MonoBehaviour
         if (!LevelManager.IsPlaying) {
             return;
         }
-        Jump();
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            Jump(jumpForce);
+        }
     }
 
     void FixedUpdate()
@@ -55,18 +58,15 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * movementSpeed);
     }
 
-    void Jump()
+    public void Jump(float force)
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            // disable mid-air jumps
-            isGrounded = false;
+        rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+        // disable mid-air jumps
+        isGrounded = false;
 
-            var audioSource = GetComponent<AudioSource>();
-            audioSource.clip = jumpSFX;
-            audioSource.Play();
-        }
+        var audioSource = GetComponent<AudioSource>();
+        audioSource.clip = jumpSFX;
+        audioSource.Play();
     }
 
     void OnCollisionEnter(Collision collision)
