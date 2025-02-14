@@ -30,6 +30,10 @@ public class CoinBehavior : MonoBehaviour
     void Update()
     {
         Rotate();
+
+        if (Input.GetKeyDown(KeyCode.Tab)) {
+            DestroyPickup();
+        }
     }
 
     void Rotate()
