@@ -60,7 +60,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public void EnemyDie()
     {
-        AudioSource.PlayClipAtPoint(enemySFX, Camera.main.transform.position, 0.1f);
+        AudioSource.PlayClipAtPoint(enemySFX, Camera.main.transform.position, 0.4f);
         Destroy(gameObject);
     }
 
