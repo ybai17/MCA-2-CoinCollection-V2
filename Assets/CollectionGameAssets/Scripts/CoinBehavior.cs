@@ -44,6 +44,7 @@ public class CoinBehavior : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("Player")) {
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             DestroyPickup();
         }
     }
