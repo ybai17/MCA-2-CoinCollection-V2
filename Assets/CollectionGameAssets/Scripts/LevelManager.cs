@@ -56,7 +56,10 @@ public class LevelManager : MonoBehaviour
                     LevelBeat();
                 }
             } else if (currentLevel == 1) {
-                
+                if (CoinBehavior.ScoreTotal >= 35) {
+                    //win
+                    LevelBeat();
+                }
             }
 
             if (countdown <= 0) {
