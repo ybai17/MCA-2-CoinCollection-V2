@@ -55,6 +55,8 @@ public class LevelManager : MonoBehaviour
                     //win
                     LevelBeat();
                 }
+            } else if (currentLevel == 1) {
+                
             }
 
             if (countdown <= 0) {
