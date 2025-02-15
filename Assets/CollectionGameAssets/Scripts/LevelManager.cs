@@ -61,9 +61,9 @@ public class LevelManager : MonoBehaviour
                     LevelBeat();
                 }
             } else if (currentLevel == 2) {
-                if (CoinBehavior.ScoreTotal >= 35) {
+                if (CoinBehavior.ScoreTotal >= 75 && FlagBehavior.ObjectiveReached) {
                     //win
-                    LevelBeat();
+                    GameComplete();
                 }
             }
 
@@ -121,6 +121,22 @@ public class LevelManager : MonoBehaviour
         CoinBehavior.ResetPickups();
         Invoke("ReloadSameScene", 5); //waits 5 seconds before calling ReloadSameScene()
         //ReloadSameScene();
+    }
+
+    void GameComplete()
+    {
+        IsPlaying = false;
+
+        //play sound effect
+        PlaySoundFX(winSoundEffect);
+        //display message
+        DisplayMessage("GAME COMPLETED");
+
+        CoinBehavior.ResetPickups();
+
+        currentLevel = -1;
+
+        nextButton.SetActive(true);
     }
 
     void PlaySoundFX(AudioClip clip) {
