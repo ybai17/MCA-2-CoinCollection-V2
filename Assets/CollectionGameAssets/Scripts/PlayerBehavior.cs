@@ -25,7 +25,7 @@ public class PlayerBehavior : MonoBehaviour
 
             if (transform.position.y >= collision.gameObject.transform.position.y + 0.2) {
                 PlayerController playerController = GetComponent<PlayerController>();
-                playerController.Jump(2.5f);
+                playerController.Jump(5f);
                 
                 return;
             }
