@@ -40,10 +40,6 @@ public class LevelManager : MonoBehaviour
         SetScoreText(0);
         IsPlaying = true;
         nextButton.SetActive(false);
-
-        if (currentLevel == 2) {
-            Destroy(GameObject.Find("First Camera"));
-        }
     }
 
     // Update is called once per frame
@@ -100,6 +96,8 @@ public class LevelManager : MonoBehaviour
     }
 
     void LevelBeat() {
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().Stop();
+
         IsPlaying = false;
 
         // play sound effect
@@ -115,6 +113,8 @@ public class LevelManager : MonoBehaviour
     }
 
     public void LevelLost() {
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().Stop();
+
         IsPlaying = false;
         
         // play sound effect
@@ -129,6 +129,8 @@ public class LevelManager : MonoBehaviour
 
     void GameComplete()
     {
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().Stop();
+        
         IsPlaying = false;
 
         //play sound effect
