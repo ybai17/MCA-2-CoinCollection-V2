@@ -13,6 +13,11 @@ public class CameraController : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         offset = transform.position - target.position;
+
+        if (LevelManager.currentLevel == 0) {
+            DontDestroyOnLoad(gameObject);
+            GetComponent<AudioSource>().Play();
+        }
     }
 
     // Update is called once per frame

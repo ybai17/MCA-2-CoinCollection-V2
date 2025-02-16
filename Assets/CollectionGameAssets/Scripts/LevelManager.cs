@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     public static bool IsPlaying {get; private set;}
 
-    static int currentLevel;
+    public static int currentLevel;
 
     [SerializeField]
     private float levelTime = 30.0f;
@@ -40,6 +40,10 @@ public class LevelManager : MonoBehaviour
         SetScoreText(0);
         IsPlaying = true;
         nextButton.SetActive(false);
+
+        if (currentLevel == 2) {
+            Destroy(GameObject.Find("First Camera"));
+        }
     }
 
     // Update is called once per frame
