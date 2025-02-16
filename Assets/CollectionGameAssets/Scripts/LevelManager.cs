@@ -136,6 +136,14 @@ public class LevelManager : MonoBehaviour
 
         currentLevel = -1;
 
+        Debug.Log("Next button: " + nextButton);
+
+        Debug.Log("Next button child: " + nextButton.transform.GetChild(0));
+
+        Debug.Log("TextMeshPro: " + nextButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>());
+
+        nextButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Play again?";
+
         nextButton.SetActive(true);
     }
 
@@ -150,6 +158,13 @@ public class LevelManager : MonoBehaviour
             return;
 
         messageText.text = message;
+
+        if (FlagBehavior.ObjectiveReached && currentLevel == 2) {
+            messageText.fontSize = 50;
+        } else {
+            messageText.fontSize = 100;
+        }
+
         messageText.enabled = true;
     }
 
