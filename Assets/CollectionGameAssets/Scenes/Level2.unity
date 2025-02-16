@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: f3090b38e4e6fcc40a04448f990c50e0, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 8945c25bc4d564040849ed7a6d4be47d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3470,12 +3470,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e03c5854cb80c644a97c5527c38265e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTime: 60
+  levelTime: 100
   timerText: {fileID: 2101529642}
   scoreText: {fileID: 1690825624}
   messageText: {fileID: 2130687320}
   nextButton: {fileID: 2017870503}
-  winSoundEffect: {fileID: 8300000, guid: c077e830e714238478f8da63b19bbb9a, type: 3}
+  winSoundEffect: {fileID: 8300000, guid: 0c770aa17da5f8e47938cf0e892ba680, type: 3}
   loseSoundEffect: {fileID: 8300000, guid: 13929e28bc3e251498953c4fd2c45365, type: 3}
 --- !u!82 &1597624959
 AudioSource:
