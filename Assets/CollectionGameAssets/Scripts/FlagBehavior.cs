@@ -32,4 +32,11 @@ public class FlagBehavior : MonoBehaviour
             ObjectiveReached = true;
         }
     }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player")) {
+            ObjectiveReached = false;
+        }
+    }
 }
